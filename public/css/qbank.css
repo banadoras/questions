@@ -1,0 +1,40 @@
+.question{
+    background-color: rgb(255, 255, 255);
+   
+font-family: 'Nanum Gothic', sans-serif;
+}
+
+.stem{
+    font-weight: bold;
+}
+h3{
+    font-size:small;
+    margin:0;
+     font-family: 'Coda Caption', sans-serif;
+}
+h5{
+    font-size: small;
+    margin:0;
+    font-family: 'Coda Caption', sans-serif;
+
+    
+}
+.question p{
+    font-size: small;
+    margin:2px;
+
+}
+
+span{
+    font-size: x-small;
+}
+
+.correct-answer{
+    color:darkblue;
+    font-weight: bolder;
+    text-decoration: teal;
+}
+
+a{
+    font-family: 'Coda Caption', sans-serif;
+}

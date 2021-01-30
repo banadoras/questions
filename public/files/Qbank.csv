@@ -1,0 +1,26 @@
+ID,Name,Option 1,Option 2,Option 3,Option 4,Correct Answer,Explanation,Author
+600f7567318cb26e874ff2d5,io,ww,[object Object],fg,rt,2,were,1
+600f8143f94fc86ffa4e62d0,73 year old male with history of HTN and CAD scheduled for elective open cholecystectomy. Patient had shortness of breath and chest few days before the surgery. ,Proceed without further testing,[object Object],Get EKG,Need cardiology consultation,3,"According to the AHA, symptomatic patient with history of cardiac issues need preoperative evaluation and testing",1
+6010bde599be9f73a13c86e5,34 year old male with HTN,Cancel,Proceed with surgery,Postpone,None of the above,3,Always postpone surgery,Joseph
+6010bf22c16c8673de10cd0c,hello,cance,proceed,postpone,none,4,none of the above,Joseph
+6010bfa196758973fe0abc05,can you answer this question?,yes,no,may be,none,4,none of the above is the answer,Joseph
+6010c04903475a74195d38b1,asdfdsf,as,w,lo,sdsdsdsdsd,2,sSLDjsdljsLDJasldjl,Mark
+6010c0a95411fe7426b2388e,jfladjflsdjflsjdfl,pdf,asdfsdf,asdf,fsdfsdfsdfs,2,lkjljlfjalsdjflsdjflsdjflsdfj,Mark
+6010c26e34a765746ebfc541,This is the question stem,yes,no,may be,none of the above,3,I cannot explain this phenomenon,Mark
+6010c38e0ecd1074b07a217c,This is my stem question,far,near ,so far ,none,3,None of the above is the not the answer,Mark
+6010c46531808f74ce3278a0,hello,wer,asdf,ads,oiooo,2,afdsfsdfsdfsdfs,Mark
+6010c5a2b3ce3b750305dca0,lajdflajdfl jflasdjfaljdflajdfljdlfjljd,2323,no,yes,nonoe,3,jadofjllafjldjfladjfladjflsadjflsdjflsdjf,Joseph
+6010c65d5a12a6751ce87844,lajdflajdfl jflasdjfaljdflajdfljdlfjljd,2323,no,yes,nonoe,3,jadofjllafjldjfladjfladjflsadjflsdjflsdjf,Joseph
+6010c6b2077afa751ed0865b,a wuestfjajdfljldjflasdjflsdjflsdjflsdjfl,dslfj,lsdjfl,slsl,sldfj,2,asdfsadfjfljflfj,Mark
+6010c77d5c8be87539ca1215,aljfljflsdjflsjfljfl,yes,no,may be,none ,2,none of the above is not the answer,Joseph
+6010c815c083af75521ea661,jjhj,q,a,ss,s,1,aaaaa,Mark
+6010d772bd866f763ea97bdc,lljljljl,yes,no,may be,none,3,something,Mark
+6010d886ab5cb4764dc6659b,;l;;jlajdsofjosafj,23r,lsdfjsl,slf,djflsdfj,3,fasdfasdfsadjflsdjfl,Steve
+6010d98289bb9e7674404605,alfas,asdfasdf,add,as,as,2,asdfsadfasdf,Steve
+6010d9c5f95bf1767e64c7d5,asdfs,as,a,asdfsadf,asdfdf,2,asdfasdf,Steve
+6010dc5727839776d0ca0e06,23 year old male scheduled for AV-fistula repair under regional anesthesia. At the end of the block the anesthesia team recognized that the wrong arm has been blocked. What is the best statement to describe this situation?,This event must be reported to JACO,It is considered to be a sentinel event,As long as no harm done to the patient no need for further follow up,None of the above,2,Definition of sentinel event is important and crucial,Joseph
+6010dda202f749772374fd95,23 year old male scheduled for AV-fistula repair under regional anesthesia. At the end of the block the anesthesia team recognized that the wrong arm has been blocked. What is the best statement to describe this situation?,This event must be reported to JACO,It is considered to be a sentinel event,As long as no harm done to the patient no need for further follow up,None of the above,3,Definition of sentinel event is important and crucial,Steve
+60120b6aafb59e7873797058,54 year old male with history of HTN and CAD scheduled for open abdominal surgery however patient had shortness of breath and chest pain.,Proceed,Cancel surgery,More investigation needed,None of the above,1,The explanation is the needed value can be obtained by main therapy.,Mark
+60120c69afb59e7873797059,The question is for the information can be needed into the main issue,Around the corner,Professor,Towards the way,None of the above,3,Everything,Steve
+6012197fafb59e787379705a,,,,,,4,,Author
+60121a7d60fcc179576a1b9e,What is the correct answer of the question?,Cannot proceed,No,Yes,None of the above,3,The correct answer is the main feature.,Mark
