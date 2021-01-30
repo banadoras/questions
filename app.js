@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
@@ -52,7 +54,7 @@ const csvWriter = createCsvWriter({
     ]
 })
 
-const uri = "mongodb+srv://banadoras:" + "JoeMike13" + "@cluster0.bocrh.mongodb.net/" + "ppp" + "?retryWrites=true&w=majority"
+const uri = "mongodb+srv://banadoras:" + process.env.PASSWORD + "@cluster0.bocrh.mongodb.net/" + "ppp" + "?retryWrites=true&w=majority"
 mongoose.connect(uri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
