@@ -5,8 +5,16 @@ const app = express()
 const mongoose = require("mongoose")
 const mongoosePaginate = require('mongoose-paginate-v2');
 const multer = require("multer")
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, "./public/uploads")
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now())
+    }
+  })
 const upload = multer({
-    dest: "./public/uploads"
+    storage: storage
 })
 
 const createQdoc = require("./doc")
