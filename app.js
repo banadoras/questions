@@ -165,22 +165,22 @@ app.get("/:author/:page_number", (req, res) => {
 app.post("/export", (req, res) => {
     const list = Question.find({}, (error, questions) => {
         if (!error) {
-            var finalList = []
-            questions.forEach(question => {
-                const q = {
-                    id: question._id,
-                    stem: question.stem,
-                    option1: question.options[0],
-                    option2: question.options[1],
-                    option3: question.options[2],
-                    option4: question.options[3],
-                    correct: question.correct,
-                    explanation: question.explanation,
-                    author: question.author
-                }
-                finalList.push(q)
+            // var finalList = []
+            // questions.forEach(question => {
+            //     const q = {
+            //         id: question._id,
+            //         stem: question.stem,
+            //         option1: question.options[0],
+            //         option2: question.options[1],
+            //         option3: question.options[2],
+            //         option4: question.options[3],
+            //         correct: question.correct,
+            //         explanation: question.explanation,
+            //         author: question.author
+            //     }
+            //     finalList.push(q)
                 csvWriter
-                    .writeRecords(finalList)
+                    .writeRecords(questions)
                     .then(() => {
                         res.download("./public/files/Qbank.csv", (error) => {
                             if (!error) {
@@ -190,7 +190,7 @@ app.post("/export", (req, res) => {
                             }
                         })
                     });
-            })
+            
 
         } else {
             res.redirect("/qbank")
