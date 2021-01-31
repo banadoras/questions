@@ -149,6 +149,7 @@ app.post("/export", (req, res) => {
                     author: question.author
                 }
                 finalList.push(q)
+            })
             const filePathQbank = "./public/files/Qbank-" + Date.now() + ".csv"
             const csvWriter = createCsvWriter({
                 path: filePathQbank,
