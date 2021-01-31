@@ -6,67 +6,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-        <link rel="preconnect" href="https://fonts.gstatic.com"> 
-        <link rel="preconnect" href="https://fonts.gstatic.com"> 
-        <link href="https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&family=Nanum+Gothic:wght@400;800&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/css/qbank.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Coda+Caption:wght@800&family=Nanum+Gothic:wght@400;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="/css/qbank.css">
     <title>Questions</title>
 </head>
 
 <body>
     <div class="main p-5">
-        <a href="/" class="btn btn-sm btn-outline-dark my-2">Back</a>
-        <a href="/qbank" class="btn btn-sm btn-outline-dark my-2">Show All Qbank</a>
-        <form action="/filterAuthor" method="POST" enctype="multipart/form-data" class="d-inline-block form-inline"> 
-            <div class="d-inline-block">
-                <button class=" btn btn-sm btn-outline-primary">Filter by Author</button>
-            </div>
-            
-            <select name="author" class="custom-select mb-3" aria-label="Default select example">
-                <option selected>Author</option>
-                <option value="Joseph">Joseph</option>
-                <option value="Steve">Steve</option>
-                <option value="Mark">Mark</option>
-            </select>
-            
+     <form  method="POST" action="/export"></form>
+        <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+            <a href="/" type="button" class="btn btn-outline-dark btn-sm ">Back</a>
+            <a href="/qbank" type="button" class="btn btn-outline-dark btn-sm">All Q-Bank</a>            
+           
+                <button class="export btn btn-sm btn-outline-danger">Export to CSV</button>
+           
+        </div>
+ </form>
+        <form action="/filterAuthor" method="POST" enctype="multipart/form-data" class="d-inline-block form-inline">
+                <div class="d-inline-block">
+                    <button class=" btn btn-sm btn-outline-dark">Filter by Author</button>
+                </div>
+    
+                <select name="author" class="custom-select mb-3" aria-label="Default select example">
+                    <option selected>Author</option>
+                    <option value="Joseph">Joseph</option>
+                    <option value="Steve">Steve</option>
+                    <option value="Mark">Mark</option>
+                </select>
+    
         </form>
-        
+
+
         <nav aria-label="Page navigation example" class=" ">
             <ul class="pagination pagination-sm justify-content-center">
-                <% for(let index = 0; index < questions.totalPages; index++){ %>
+                <% for(let index=0; index < questions.totalPages; index++){ %>
                     <li class="page-item m-1"><a class="page-link text-dark" href="/<%=searching==="all"?"qbank":questions.docs[0].author%>/<%= index + 1 %>"><%= index + 1 %></a></li>
-                <%}%>                        
+                    <%}%>
             </ul>
-          </nav>
+        </nav>
 
         <% questions.docs.forEach((question,index)=>{ %>
-        <div class="question my-3 shadow rounded p-3">
-            <h3>Question <%= index+1 +(questions.limit * (questions.page-1)) %></h3>
-            <span class="d-block"> Authored by: <%= question.author %></span>
-            <img class="rounded" src="/uploads/<%= question.media?question.media.filename:"" %>"
-                style="height: 100px;display:<%= question.media?"inline-block":"none"%>" alt="media-image">
-            <p class="stem px-2 my-2"><%= question.stem %></p>
-            <div class="px-2">
-                <p class="<%= question.correct === 1? "correct-answer":""%> px-2" >1.
-                    <%= question.options[0] %></p>
-                <p class="<%= question.correct === 2? "correct-answer":""%> px-2" > 2.
-                    <%= question.options[1] %></p>
-                <p class="<%= question.correct === 3? "correct-answer":""%> px-2" >3.
-                    <%= question.options[2] %></p>
-                <p class="<%= question.correct === 4? "correct-answer":""%> px-2" >4.
-                    <%= question.options[3] %></p>
+            <div class="question my-3 shadow rounded p-3">
+                <h3>Question <%= index+1 +(questions.limit * (questions.page-1)) %>
+                </h3>
+                <span class="d-block"> Authored by: <%= question.author %></span>
+                <img class="rounded" src="/uploads/<%= question.media?question.media.filename:"" %>"
+                    style="height: 100px;display:<%= question.media?" inline-block":"none"%>" alt="media-image">
+                <p class="stem px-2 my-2">
+                    <%= question.stem %>
+                </p>
+                <div class="px-2">
+                    <p class="<%= question.correct === 1? " correct-answer":""%> px-2" >1.
+                        <%= question.options[0] %>
+                    </p>
+                    <p class="<%= question.correct === 2? " correct-answer":""%> px-2" > 2.
+                        <%= question.options[1] %>
+                    </p>
+                    <p class="<%= question.correct === 3? " correct-answer":""%> px-2" >3.
+                        <%= question.options[2] %>
+                    </p>
+                    <p class="<%= question.correct === 4? " correct-answer":""%> px-2" >4.
+                        <%= question.options[3] %>
+                    </p>
+                </div>
+                <h5 class="px-2 mt-2">Explanation</h5>
+                <p class="px-2">
+                    <%= question.explanation %>
+                </p>
             </div>
-            <h5 class="px-2 mt-2">Explanation</h5>
-            <p class="px-2"><%= question.explanation %></p>
-        </div>
 
-        <% }) %>
-        <div class="text-center">
-            <form method="POST" action="/export">
-                <button class="btn btn-sm btn-outline-dark">Export to CSV</button>
-            </form>
+            <% }) %>
 
-        </div>
+               
     </div>
 </body>
 
