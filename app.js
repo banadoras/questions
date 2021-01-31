@@ -171,7 +171,8 @@ app.get("/:author/:page_number", (req, res) => {
 
 
 app.post("/export", (req, res) => {
-    const list = Question.find({}, (error, questions) => {
+    console.log("some")
+    Question.find({}, (error, questions) => {
         if (!error) {
             // var finalList = []
             // questions.forEach(question => {

@@ -17,21 +17,21 @@
 
 <body>
     <div class="main p-5">
-     <form  method="POST" action="/export"></form>
+   
         <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
-            <a href="/" type="button" class="btn btn-outline-dark btn-sm ">Back</a>
-            <a href="/qbank" type="button" class="btn btn-outline-dark btn-sm">All Q-Bank</a>            
-           
-                <button class="export btn btn-sm btn-outline-danger">Export to CSV</button>
-           
+            <form method="POST" action="/export">
+            <a href="/" class="btn btn-outline-dark btn-sm ">Back</a>
+            <a href="/qbank"  class="btn btn-outline-dark btn-sm">All Q-Bank</a>            
+             <button type="submit" class="export btn btn-sm btn-outline-danger">Export to CSV</button>
+            </form>
         </div>
- </form>
-        <form action="/filterAuthor" method="POST" enctype="multipart/form-data" class="d-inline-block form-inline">
+
+        <form action="/filterAuthor" method="POST" enctype="multipart/form-data" class="mt-2 form-inline">
                 <div class="d-inline-block">
                     <button class=" btn btn-sm btn-outline-dark">Filter by Author</button>
                 </div>
     
-                <select name="author" class="custom-select mb-3" aria-label="Default select example">
+                <select name="author" class="form-select my-2 d-inline-block" aria-label="Default select example">
                     <option selected>Author</option>
                     <option value="Joseph">Joseph</option>
                     <option value="Steve">Steve</option>
@@ -44,7 +44,7 @@
         <nav aria-label="Page navigation example" class=" ">
             <ul class="pagination pagination-sm justify-content-center">
                 <% for(let index=0; index < questions.totalPages; index++){ %>
-                    <li class="page-item m-1"><a class="page-link text-dark" href="/<%=searching==="all"?"qbank":questions.docs[0].author%>/<%= index + 1 %>"><%= index + 1 %></a></li>
+                    <li class="page-item m-1"><a class="page-link text-dark" href="/<%= searching==="all"?"qbank":questions.docs[0].author %>/<%= index + 1 %>" > <%= index + 1 %> </a></li>
                     <%}%>
             </ul>
         </nav>
