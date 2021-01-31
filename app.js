@@ -18,49 +18,10 @@ const upload = multer({
 })
 
 const createQdoc = require("./doc")
-
+//const filePathQbank = "./public/files/Qbank-" + Date.now() + ".csv"
 const fs = require("fs")
 const createCsvWriter = require("csv-writer").createObjectCsvWriter
-const csvWriter = createCsvWriter({
-    path: './public/files/Qbank.csv',
-    header: [{
-            id: 'id',
-            title: 'ID'
-        },
-        {
-            id: 'stem',
-            title: 'Name'
-        },
-        {
-            id: 'option1',
-            title: 'Option 1'
-        },
-        {
-            id: 'option2',
-            title: 'Option 2'
-        },
-        {
-            id: 'option3',
-            title: 'Option 3'
-        },
-        {
-            id: 'option4',
-            title: 'Option 4'
-        },
-        {
-            id: 'correct',
-            title: 'Correct Answer'
-        },
-        {
-            id: 'explanation',
-            title: 'Explanation'
-        },
-        {
-            id: 'author',
-            title: 'Author'
-        },
-    ]
-})
+
 
 const uri = "mongodb+srv://banadoras:" + process.env.PASSWORD + "@cluster0.bocrh.mongodb.net/" + "ppp" + "?retryWrites=true&w=majority"
 mongoose.connect(uri, {
@@ -188,10 +149,53 @@ app.post("/export", (req, res) => {
             //         author: question.author
             //     }
             //     finalList.push(q)
+            const filePathQbank = "./public/files/Qbank-" + Date.now() + ".csv"
+            const csvWriter = createCsvWriter({
+                path: filePathQbank,
+                append:false,
+                header: [{
+                        id: 'id',
+                        title: 'ID'
+                    },
+                    {
+                        id: 'stem',
+                        title: 'Name'
+                    },
+                    {
+                        id: 'option1',
+                        title: 'Option 1'
+                    },
+                    {
+                        id: 'option2',
+                        title: 'Option 2'
+                    },
+                    {
+                        id: 'option3',
+                        title: 'Option 3'
+                    },
+                    {
+                        id: 'option4',
+                        title: 'Option 4'
+                    },
+                    {
+                        id: 'correct',
+                        title: 'Correct Answer'
+                    },
+                    {
+                        id: 'explanation',
+                        title: 'Explanation'
+                    },
+                    {
+                        id: 'author',
+                        title: 'Author'
+                    },
+                ]
+            })
                 csvWriter
                     .writeRecords(questions)
                     .then(() => {
-                        res.download("./public/files/Qbank.csv", (error) => {
+                        
+                        res.download(filePathQbank, (error) => {
                             if (!error) {
                                 console.log("file downloaded")
                             } else {
