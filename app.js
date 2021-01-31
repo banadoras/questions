@@ -135,20 +135,20 @@ app.post("/export", (req, res) => {
     console.log("some")
     Question.find({}, (error, questions) => {
         if (!error) {
-            // var finalList = []
-            // questions.forEach(question => {
-            //     const q = {
-            //         id: question._id,
-            //         stem: question.stem,
-            //         option1: question.options[0],
-            //         option2: question.options[1],
-            //         option3: question.options[2],
-            //         option4: question.options[3],
-            //         correct: question.correct,
-            //         explanation: question.explanation,
-            //         author: question.author
-            //     }
-            //     finalList.push(q)
+            var finalList = []
+            questions.forEach(question => {
+                const q = {
+                    id: question._id,
+                    stem: question.stem,
+                    option1: question.options[0],
+                    option2: question.options[1],
+                    option3: question.options[2],
+                    option4: question.options[3],
+                    correct: question.correct,
+                    explanation: question.explanation,
+                    author: question.author
+                }
+                finalList.push(q)
             const filePathQbank = "./public/files/Qbank-" + Date.now() + ".csv"
             const csvWriter = createCsvWriter({
                 path: filePathQbank,
@@ -192,7 +192,7 @@ app.post("/export", (req, res) => {
                 ]
             })
                 csvWriter
-                    .writeRecords(questions)
+                    .writeRecords(finalList)
                     .then(() => {
                         
                         res.download(filePathQbank, (error) => {
